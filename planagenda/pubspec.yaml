@@ -1,0 +1,62 @@
+name: PlanAgenda
+description: Kedi temalı günlük ders programı ve aktivite planlayıcı.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.2
+  shared_preferences: ^2.2.3
+  intl: ^0.19.0
+  google_fonts: ^6.2.1
+  flutter_local_notifications: ^22.2.0
+  timezone: ^0.11.1
+  flutter_native_splash: ^2.4.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  image_path: "assets/app_icon.png"
+  ios: true
+  android: true
+  remove_alpha_ios: true
+
+flutter_native_splash:
+  color: "#F9F6FD"
+  background_image: "assets/splash.png"
+  image: "assets/splash.png"
+  ios_content_mode: scaleAspectFill
+  android_gravity: fill
+  ios: true
+  android: false
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/app_icon.png
+    - assets/icon1.png
+    - assets/icon2.png
+    - assets/icon3.png
+    - assets/icon4.png
+    - assets/icon5.png
+    - assets/icon6.png
+    - assets/icon7.png
+    - assets/icon8.png
+    - assets/icon9.png
+    - assets/icon10.png
+    - assets/icon11.png
+    - assets/icon12.png
+    - assets/icon13.png
+    - assets/icon14.png
+    - assets/icon15.png
+    - assets/cat_avatar.png
+    - assets/book.png
+    - assets/splash.png

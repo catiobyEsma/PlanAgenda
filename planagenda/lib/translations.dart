@@ -1,0 +1,855 @@
+import 'localization.dart';
+import 'models.dart';
+
+final Map<String, Map<AppLanguage, String>> _dict = {
+  // Genel / Home
+  'app_title': {
+    AppLanguage.tr: 'PlanAgenda',
+    AppLanguage.en: 'PlanAgenda',
+    AppLanguage.fr: 'PlanAgenda',
+    AppLanguage.de: 'PlanAgenda',
+    AppLanguage.it: 'PlanAgenda',
+  },
+  'home_daily_title': {
+    AppLanguage.tr: 'Günlük Ders Programın & Planların',
+    AppLanguage.en: 'Your Daily Curriculums & Plans',
+    AppLanguage.fr: 'Vos Programmes & Plans Quotidiens',
+    AppLanguage.de: 'Deine Täglichen Pläne & Stundenpläne',
+    AppLanguage.it: 'I Tuoi Programmi e Piani Giornalieri',
+  },
+  'home_activities_title': {
+    AppLanguage.tr: 'Ders Dışı Aktivitelerin',
+    AppLanguage.en: 'Your Extracurricular Activities',
+    AppLanguage.fr: 'Vos Activités Extrascolaires',
+    AppLanguage.de: 'Deine Außerschulischen Aktivitäten',
+    AppLanguage.it: 'Le Tue Attività Extracurricolari',
+  },
+  'icon1_tooltip': {
+    AppLanguage.tr: 'Ders programı ve aktiviteleri gir',
+    AppLanguage.en: 'Enter your schedule and activities',
+    AppLanguage.fr: 'Saisir l\'emploi du temps et les activités',
+    AppLanguage.de: 'Stundenplan und Aktivitäten eingeben',
+    AppLanguage.it: 'Inserisci orario e attività',
+  },
+  'day_today': {
+    AppLanguage.tr: 'Bugün',
+    AppLanguage.en: 'Today',
+    AppLanguage.fr: 'Aujourd\'hui',
+    AppLanguage.de: 'Heute',
+    AppLanguage.it: 'Oggi',
+  },
+  'day_yesterday': {
+    AppLanguage.tr: 'Dün',
+    AppLanguage.en: 'Yesterday',
+    AppLanguage.fr: 'Hier',
+    AppLanguage.de: 'Gestern',
+    AppLanguage.it: 'Ieri',
+  },
+  'day_tomorrow': {
+    AppLanguage.tr: 'Yarın',
+    AppLanguage.en: 'Tomorrow',
+    AppLanguage.fr: 'Demain',
+    AppLanguage.de: 'Morgen',
+    AppLanguage.it: 'Domani',
+  },
+  'activity_upcoming': {
+    AppLanguage.tr: 'BUGÜN!!',
+    AppLanguage.en: 'UPCOMING!!',
+    AppLanguage.fr: 'AUJOURD\'HUI!!',
+    AppLanguage.de: 'HEUTE!!',
+    AppLanguage.it: 'OGGI!!',
+  },
+  'activity_tomorrow': {
+    AppLanguage.tr: 'YARIN!!',
+    AppLanguage.en: 'TOMORROW!!',
+    AppLanguage.fr: 'DEMAIN!!',
+    AppLanguage.de: 'MORGEN!!',
+    AppLanguage.it: 'DOMANI!!',
+  },
+  'activity_none': {
+    AppLanguage.tr: 'Planlanan Aktivite Yok',
+    AppLanguage.en: 'No Planned Activities',
+    AppLanguage.fr: 'Aucune Activité Prévue',
+    AppLanguage.de: 'Keine Geplanten Aktivitäten',
+    AppLanguage.it: 'Nessuna Attività Pianificata',
+  },
+  'exam_today_alert': {
+    AppLanguage.tr: 'Bugün sınavın var',
+    AppLanguage.en: 'You have an exam today',
+    AppLanguage.fr: 'Vous avez un examen aujourd\'hui',
+    AppLanguage.de: 'Du hast heute eine Prüfung',
+    AppLanguage.it: 'Hai un esame oggi',
+  },
+  'exam_tomorrow_alert': {
+    AppLanguage.tr: 'Yarın sınavın var',
+    AppLanguage.en: 'You have an exam tomorrow',
+    AppLanguage.fr: 'Vous avez un examen demain',
+    AppLanguage.de: 'Du hast morgen eine Prüfung',
+    AppLanguage.it: 'Hai un esame domani',
+  },
+  'settings_title': {
+    AppLanguage.tr: 'Ayarlar',
+    AppLanguage.en: 'Settings',
+    AppLanguage.fr: 'Paramètres',
+    AppLanguage.de: 'Einstellungen',
+    AppLanguage.it: 'Impostazioni',
+  },
+  'choose_avatar': {
+    AppLanguage.tr: 'Profil İkonu Seç',
+    AppLanguage.en: 'Choose Profile Icon',
+    AppLanguage.fr: 'Choisir l\'icône de profil',
+    AppLanguage.de: 'Profilsymbol wählen',
+    AppLanguage.it: 'Scegli icona profilo',
+  },
+  'notif_lesson_title': {
+    AppLanguage.tr: 'Dersin Var!',
+    AppLanguage.en: 'You Have a Class!',
+    AppLanguage.fr: 'Vous avez cours !',
+    AppLanguage.de: 'Du hast Unterricht!',
+    AppLanguage.it: 'Hai lezione!',
+  },
+  'notif_lecture_label': {
+    AppLanguage.tr: 'Ders Adı',
+    AppLanguage.en: 'Lecture',
+    AppLanguage.fr: 'Cours',
+    AppLanguage.de: 'Vorlesung',
+    AppLanguage.it: 'Lezione',
+  },
+  'notif_room_label': {
+    AppLanguage.tr: 'Sınıf',
+    AppLanguage.en: 'Room',
+    AppLanguage.fr: 'Salle',
+    AppLanguage.de: 'Raum',
+    AppLanguage.it: 'Aula',
+  },
+  'notif_time_label': {
+    AppLanguage.tr: 'Saat',
+    AppLanguage.en: 'Time',
+    AppLanguage.fr: 'Heure',
+    AppLanguage.de: 'Uhrzeit',
+    AppLanguage.it: 'Ora',
+  },
+  'notif_good_luck_lesson': {
+    AppLanguage.tr: 'İyi dersler!',
+    AppLanguage.en: 'Have a great class!',
+    AppLanguage.fr: 'Bon cours !',
+    AppLanguage.de: 'Viel Erfolg im Unterricht!',
+    AppLanguage.it: 'Buona lezione!',
+  },
+  'notif_activity_title': {
+    AppLanguage.tr: 'Aktiviten Var!',
+    AppLanguage.en: 'You Have an Activity!',
+    AppLanguage.fr: 'Vous avez une activité !',
+    AppLanguage.de: 'Du hast eine Aktivität!',
+    AppLanguage.it: 'Hai un\'attività!',
+  },
+  'notif_good_luck_activity': {
+    AppLanguage.tr: 'İyi eğlenceler!',
+    AppLanguage.en: 'Have fun!',
+    AppLanguage.fr: 'Amusez-vous bien !',
+    AppLanguage.de: 'Viel Spaß!',
+    AppLanguage.it: 'Divertiti!',
+  },
+  'notif_exam_title': {
+    AppLanguage.tr: 'Bugün Sınavın Var!',
+    AppLanguage.en: 'You Have an Exam Today!',
+    AppLanguage.fr: 'Vous avez un examen aujourd\'hui !',
+    AppLanguage.de: 'Du hast heute eine Prüfung!',
+    AppLanguage.it: 'Hai un esame oggi!',
+  },
+  'notif_good_luck_exam': {
+    AppLanguage.tr: 'sınavında başarılar dileriz! 🍀',
+    AppLanguage.en: 'exam — good luck! 🍀',
+    AppLanguage.fr: ': bonne chance pour l\'examen ! 🍀',
+    AppLanguage.de: 'Prüfung — viel Erfolg! 🍀',
+    AppLanguage.it: ': in bocca al lupo per l\'esame! 🍀',
+  },
+  'notif_permission_note': {
+    AppLanguage.tr: 'Derslerin ve aktivitelerin başlamadan 5 dakika önce, sınav günlerinde ise sabah hatırlatma alabilmen için bildirimlerin açık olması gerekir.',
+    AppLanguage.en: 'Notifications must be enabled so you get a reminder 5 minutes before your lessons and activities start, and a morning reminder on exam days.',
+    AppLanguage.fr: 'Les notifications doivent être activées pour recevoir un rappel 5 minutes avant vos cours et activités, ainsi qu\'un rappel le matin des jours d\'examen.',
+    AppLanguage.de: 'Benachrichtigungen müssen aktiviert sein, damit du 5 Minuten vor deinen Kursen und Aktivitäten sowie morgens an Prüfungstagen eine Erinnerung erhältst.',
+    AppLanguage.it: 'Le notifiche devono essere attive per ricevere un promemoria 5 minuti prima di lezioni e attività, e un promemoria mattutino nei giorni d\'esame.',
+  },
+
+  // Curriculum screen
+  'curriculum_title': {
+    AppLanguage.tr: 'Ders Programım',
+    AppLanguage.en: 'My Curriculum',
+    AppLanguage.fr: 'Mon Programme',
+    AppLanguage.de: 'Mein Stundenplan',
+    AppLanguage.it: 'Il Mio Programma',
+  },
+  'col_hour': {
+    AppLanguage.tr: 'Saat',
+    AppLanguage.en: 'Hour',
+    AppLanguage.fr: 'Heure',
+    AppLanguage.de: 'Uhrzeit',
+    AppLanguage.it: 'Ora',
+  },
+  'col_lecture': {
+    AppLanguage.tr: 'Ders',
+    AppLanguage.en: 'Lecture',
+    AppLanguage.fr: 'Cours',
+    AppLanguage.de: 'Vorlesung',
+    AppLanguage.it: 'Lezione',
+  },
+  'col_room': {
+    AppLanguage.tr: 'Oda',
+    AppLanguage.en: 'Room',
+    AppLanguage.fr: 'Salle',
+    AppLanguage.de: 'Raum',
+    AppLanguage.it: 'Aula',
+  },
+  'bottom_card_title': {
+    AppLanguage.tr: 'Boş Zamanlar, Ders Dışı Aktiviteler ve Çalışma Önerileri',
+    AppLanguage.en: 'Free Times & Extracurricular Activities and Study Recommendations',
+    AppLanguage.fr: 'Temps Libre, Activités Extrascolaires et Conseils d\'Étude',
+    AppLanguage.de: 'Freizeit, Außerschulische Aktivitäten und Lernempfehlungen',
+    AppLanguage.it: 'Tempo Libero, Attività Extracurricolari e Consigli di Studio',
+  },
+  'btn_free_time': {
+    AppLanguage.tr: 'Boş Zaman',
+    AppLanguage.en: 'Free Time',
+    AppLanguage.fr: 'Temps Libre',
+    AppLanguage.de: 'Freizeit',
+    AppLanguage.it: 'Tempo Libero',
+  },
+  'btn_extra': {
+    AppLanguage.tr: 'Ekstra',
+    AppLanguage.en: 'ExtraC.',
+    AppLanguage.fr: 'Extra',
+    AppLanguage.de: 'Extra',
+    AppLanguage.it: 'Extra',
+  },
+  'btn_study': {
+    AppLanguage.tr: 'Çalışma',
+    AppLanguage.en: 'Study',
+    AppLanguage.fr: 'Étude',
+    AppLanguage.de: 'Lernen',
+    AppLanguage.it: 'Studio',
+  },
+  'no_records_for_date': {
+    AppLanguage.tr: 'Bu tarih için kayıt yok.',
+    AppLanguage.en: 'No records for this date.',
+    AppLanguage.fr: 'Aucun enregistrement pour cette date.',
+    AppLanguage.de: 'Keine Einträge für dieses Datum.',
+    AppLanguage.it: 'Nessun dato per questa data.',
+  },
+  'action_change_time': {
+    AppLanguage.tr: 'Saati Değiştir',
+    AppLanguage.en: 'Change Time',
+    AppLanguage.fr: 'Changer l\'heure',
+    AppLanguage.de: 'Uhrzeit ändern',
+    AppLanguage.it: 'Cambia orario',
+  },
+  'action_delete_day': {
+    AppLanguage.tr: 'Bu Günden Sil',
+    AppLanguage.en: 'Delete From This Day',
+    AppLanguage.fr: 'Supprimer ce jour',
+    AppLanguage.de: 'Diesen Tag löschen',
+    AppLanguage.it: 'Elimina questo giorno',
+  },
+  'study_sheet_desc': {
+    AppLanguage.tr: 'Ders programına ve sınavlarına göre bir öneri görmek mi istersin,\nyoksa yeni sınav bilgisi mi eklemek istersin?',
+    AppLanguage.en: 'Would you like to see a suggestion based on your schedule and exams,\nor add new exam info?',
+    AppLanguage.fr: 'Voulez-vous voir une suggestion basée sur votre emploi du temps et vos examens,\nou ajouter de nouvelles infos d\'examen ?',
+    AppLanguage.de: 'Möchtest du einen Vorschlag basierend auf deinem Stundenplan und Prüfungen sehen,\noder neue Prüfungsinfos hinzufügen?',
+    AppLanguage.it: 'Vuoi vedere un suggerimento basato sul tuo orario ed esami,\no aggiungere nuove informazioni sull\'esame?',
+  },
+  'study_view_suggestions': {
+    AppLanguage.tr: 'Önerileri Gör',
+    AppLanguage.en: 'View Suggestions',
+    AppLanguage.fr: 'Voir les suggestions',
+    AppLanguage.de: 'Vorschläge ansehen',
+    AppLanguage.it: 'Vedi suggerimenti',
+  },
+  'study_enter_info': {
+    AppLanguage.tr: 'Bilgi Gir',
+    AppLanguage.en: 'Enter Info',
+    AppLanguage.fr: 'Saisir les infos',
+    AppLanguage.de: 'Infos eingeben',
+    AppLanguage.it: 'Inserisci info',
+  },
+  'study_suggestions_title': {
+    AppLanguage.tr: 'Çalışma Önerileri',
+    AppLanguage.en: 'Study Suggestions',
+    AppLanguage.fr: 'Suggestions d\'étude',
+    AppLanguage.de: 'Lernvorschläge',
+    AppLanguage.it: 'Suggerimenti di studio',
+  },
+  'no_upcoming_exam': {
+    AppLanguage.tr: 'Bu tarihten sonra yaklaşan bir sınav bulunmuyor.',
+    AppLanguage.en: 'There is no upcoming exam after this date.',
+    AppLanguage.fr: 'Aucun examen à venir après cette date.',
+    AppLanguage.de: 'Nach diesem Datum steht keine Prüfung an.',
+    AppLanguage.it: 'Non ci sono esami in arrivo dopo questa data.',
+  },
+  'study_reason_exam_today': {
+    AppLanguage.tr: 'Sınav bugün! Kapsamlı sınav tekrarı yap.',
+    AppLanguage.en: 'Exam today! Do a full review.',
+    AppLanguage.fr: 'Examen aujourd\'hui ! Fais une révision complète.',
+    AppLanguage.de: 'Prüfung heute! Mach eine umfassende Wiederholung.',
+    AppLanguage.it: 'Esame oggi! Fai un ripasso completo.',
+  },
+  'study_reason_exam_tomorrow': {
+    AppLanguage.tr: 'Sınav yarın! Kapsamlı sınav tekrarı yap.',
+    AppLanguage.en: 'Exam tomorrow! Do a full review.',
+    AppLanguage.fr: 'Examen demain ! Fais une révision complète.',
+    AppLanguage.de: 'Prüfung morgen! Mach eine umfassende Wiederholung.',
+    AppLanguage.it: 'Esame domani! Fai un ripasso completo.',
+  },
+  'study_reason_days_left': {
+    AppLanguage.tr: 'Sınava {days} gün kaldı.',
+    AppLanguage.en: '{days} days left until the exam.',
+    AppLanguage.fr: 'Il reste {days} jours avant l\'examen.',
+    AppLanguage.de: 'Noch {days} Tage bis zur Prüfung.',
+    AppLanguage.it: 'Mancano {days} giorni all\'esame.',
+  },
+  'study_reason_difficulty': {
+    AppLanguage.tr: 'zorluk: {difficulty}',
+    AppLanguage.en: 'difficulty: {difficulty}',
+    AppLanguage.fr: 'difficulté : {difficulty}',
+    AppLanguage.de: 'Schwierigkeit: {difficulty}',
+    AppLanguage.it: 'difficoltà: {difficulty}',
+  },
+  'study_reason_busy_day': {
+    AppLanguage.tr: 'yoğun ders günü, kısa ve odaklı çalış.',
+    AppLanguage.en: 'busy day, study briefly and focus.',
+    AppLanguage.fr: 'journée chargée, étudie brièvement et concentre-toi.',
+    AppLanguage.de: 'voller Tag, kurz und fokussiert lernen.',
+    AppLanguage.it: 'giornata piena, studia in modo breve e concentrato.',
+  },
+  'study_reason_free_time': {
+    AppLanguage.tr: 'boş zamanlarını değerlendir: {slots}',
+    AppLanguage.en: 'use your free slots: {slots}',
+    AppLanguage.fr: 'profite de tes créneaux libres : {slots}',
+    AppLanguage.de: 'nutze deine freien Zeitfenster: {slots}',
+    AppLanguage.it: 'usa i tuoi slot liberi: {slots}',
+  },
+  'comprehensive_review_badge': {
+    AppLanguage.tr: 'Kapsamlı Tekrar',
+    AppLanguage.en: 'Full Review',
+    AppLanguage.fr: 'Révision complète',
+    AppLanguage.de: 'Umfassende Wiederholung',
+    AppLanguage.it: 'Ripasso completo',
+  },
+  'edit_exam_info': {
+    AppLanguage.tr: 'Sınav bilgisi düzenle',
+    AppLanguage.en: 'Edit exam info',
+    AppLanguage.fr: 'Modifier les infos d\'examen',
+    AppLanguage.de: 'Prüfungsinfo bearbeiten',
+    AppLanguage.it: 'Modifica info esame',
+  },
+
+  // Manage screen
+  'manage_title': {
+    AppLanguage.tr: 'Ders Programı & Aktiviteler',
+    AppLanguage.en: 'Schedule & Activities',
+    AppLanguage.fr: 'Emploi du Temps & Activités',
+    AppLanguage.de: 'Stundenplan & Aktivitäten',
+    AppLanguage.it: 'Orario e Attività',
+  },
+  'tab_schedule': {
+    AppLanguage.tr: 'Ders Programı',
+    AppLanguage.en: 'Schedule',
+    AppLanguage.fr: 'Emploi du Temps',
+    AppLanguage.de: 'Stundenplan',
+    AppLanguage.it: 'Orario',
+  },
+  'tab_activities': {
+    AppLanguage.tr: 'Aktiviteler',
+    AppLanguage.en: 'Activities',
+    AppLanguage.fr: 'Activités',
+    AppLanguage.de: 'Aktivitäten',
+    AppLanguage.it: 'Attività',
+  },
+  'repeat_label': {
+    AppLanguage.tr: 'Tekrar',
+    AppLanguage.en: 'Repeat',
+    AppLanguage.fr: 'Répétition',
+    AppLanguage.de: 'Wiederholung',
+    AppLanguage.it: 'Ripetizione',
+  },
+  'repeat_single': {
+    AppLanguage.tr: 'Tek Günlük',
+    AppLanguage.en: 'Single Day',
+    AppLanguage.fr: 'Un seul jour',
+    AppLanguage.de: 'Einzelner Tag',
+    AppLanguage.it: 'Giorno singolo',
+  },
+  'repeat_recurring': {
+    AppLanguage.tr: 'Tekrarlı',
+    AppLanguage.en: 'Recurring',
+    AppLanguage.fr: 'Récurrent',
+    AppLanguage.de: 'Wiederkehrend',
+    AppLanguage.it: 'Ricorrente',
+  },
+  'date_label': {
+    AppLanguage.tr: 'Tarih',
+    AppLanguage.en: 'Date',
+    AppLanguage.fr: 'Date',
+    AppLanguage.de: 'Datum',
+    AppLanguage.it: 'Data',
+  },
+  'date_range_label': {
+    AppLanguage.tr: 'Tarih Aralığı',
+    AppLanguage.en: 'Date Range',
+    AppLanguage.fr: 'Période',
+    AppLanguage.de: 'Zeitraum',
+    AppLanguage.it: 'Intervallo di date',
+  },
+  'select_date_range': {
+    AppLanguage.tr: 'Tarih aralığı seç',
+    AppLanguage.en: 'Select date range',
+    AppLanguage.fr: 'Choisir une période',
+    AppLanguage.de: 'Zeitraum auswählen',
+    AppLanguage.it: 'Seleziona intervallo',
+  },
+  'days_label': {
+    AppLanguage.tr: 'Günler',
+    AppLanguage.en: 'Days',
+    AppLanguage.fr: 'Jours',
+    AppLanguage.de: 'Tage',
+    AppLanguage.it: 'Giorni',
+  },
+  'weekday_mon': {AppLanguage.tr: 'Pzt', AppLanguage.en: 'Mon', AppLanguage.fr: 'Lun', AppLanguage.de: 'Mo', AppLanguage.it: 'Lun'},
+  'weekday_tue': {AppLanguage.tr: 'Sal', AppLanguage.en: 'Tue', AppLanguage.fr: 'Mar', AppLanguage.de: 'Di', AppLanguage.it: 'Mar'},
+  'weekday_wed': {AppLanguage.tr: 'Çar', AppLanguage.en: 'Wed', AppLanguage.fr: 'Mer', AppLanguage.de: 'Mi', AppLanguage.it: 'Mer'},
+  'weekday_thu': {AppLanguage.tr: 'Per', AppLanguage.en: 'Thu', AppLanguage.fr: 'Jeu', AppLanguage.de: 'Do', AppLanguage.it: 'Gio'},
+  'weekday_fri': {AppLanguage.tr: 'Cum', AppLanguage.en: 'Fri', AppLanguage.fr: 'Ven', AppLanguage.de: 'Fr', AppLanguage.it: 'Ven'},
+  'weekday_sat': {AppLanguage.tr: 'Cmt', AppLanguage.en: 'Sat', AppLanguage.fr: 'Sam', AppLanguage.de: 'Sa', AppLanguage.it: 'Sab'},
+  'weekday_sun': {AppLanguage.tr: 'Paz', AppLanguage.en: 'Sun', AppLanguage.fr: 'Dim', AppLanguage.de: 'So', AppLanguage.it: 'Dom'},
+  'start_time_label': {
+    AppLanguage.tr: 'Başlangıç Saati',
+    AppLanguage.en: 'Start Time',
+    AppLanguage.fr: 'Heure de début',
+    AppLanguage.de: 'Startzeit',
+    AppLanguage.it: 'Ora di inizio',
+  },
+  'end_time_label': {
+    AppLanguage.tr: 'Bitiş Saati',
+    AppLanguage.en: 'End Time',
+    AppLanguage.fr: 'Heure de fin',
+    AppLanguage.de: 'Endzeit',
+    AppLanguage.it: 'Ora di fine',
+  },
+  'lecture_name_label': {
+    AppLanguage.tr: 'Ders Adı',
+    AppLanguage.en: 'Lecture Name',
+    AppLanguage.fr: 'Nom du cours',
+    AppLanguage.de: 'Name der Vorlesung',
+    AppLanguage.it: 'Nome della lezione',
+  },
+  'room_label': {
+    AppLanguage.tr: 'Sınıf / Oda',
+    AppLanguage.en: 'Classroom / Room',
+    AppLanguage.fr: 'Classe / Salle',
+    AppLanguage.de: 'Klasse / Raum',
+    AppLanguage.it: 'Classe / Aula',
+  },
+  'type_label': {
+    AppLanguage.tr: 'Tür',
+    AppLanguage.en: 'Type',
+    AppLanguage.fr: 'Type',
+    AppLanguage.de: 'Typ',
+    AppLanguage.it: 'Tipo',
+  },
+  'btn_add': {
+    AppLanguage.tr: 'Ekle',
+    AppLanguage.en: 'Add',
+    AppLanguage.fr: 'Ajouter',
+    AppLanguage.de: 'Hinzufügen',
+    AppLanguage.it: 'Aggiungi',
+  },
+  'btn_save': {
+    AppLanguage.tr: 'Kaydet',
+    AppLanguage.en: 'Save',
+    AppLanguage.fr: 'Enregistrer',
+    AppLanguage.de: 'Speichern',
+    AppLanguage.it: 'Salva',
+  },
+  'no_schedule_yet': {
+    AppLanguage.tr: 'Henüz kayıtlı ders yok.',
+    AppLanguage.en: 'No lessons added yet.',
+    AppLanguage.fr: 'Aucun cours ajouté pour l\'instant.',
+    AppLanguage.de: 'Noch keine Kurse hinzugefügt.',
+    AppLanguage.it: 'Nessuna lezione ancora aggiunta.',
+  },
+  'please_select_range': {
+    AppLanguage.tr: 'Lütfen bir tarih aralığı seçin.',
+    AppLanguage.en: 'Please select a date range.',
+    AppLanguage.fr: 'Veuillez choisir une période.',
+    AppLanguage.de: 'Bitte wähle einen Zeitraum.',
+    AppLanguage.it: 'Seleziona un intervallo di date.',
+  },
+  'please_select_weekday': {
+    AppLanguage.tr: 'Lütfen en az bir gün seçin (ör. Pazartesi).',
+    AppLanguage.en: 'Please select at least one day (e.g. Monday).',
+    AppLanguage.fr: 'Veuillez choisir au moins un jour (ex. lundi).',
+    AppLanguage.de: 'Bitte wähle mindestens einen Tag (z. B. Montag).',
+    AppLanguage.it: 'Seleziona almeno un giorno (es. lunedì).',
+  },
+  'please_fill_hour_lecture': {
+    AppLanguage.tr: 'Lütfen saat ve ders adını girin.',
+    AppLanguage.en: 'Please enter the time and lecture name.',
+    AppLanguage.fr: 'Veuillez saisir l\'heure et le nom du cours.',
+    AppLanguage.de: 'Bitte Uhrzeit und Vorlesungsname eingeben.',
+    AppLanguage.it: 'Inserisci l\'orario e il nome della lezione.',
+  },
+  'added_for_days': {
+    AppLanguage.tr: 'gün için ders eklendi.',
+    AppLanguage.en: 'day(s) had this lesson added.',
+    AppLanguage.fr: 'jour(s) ont reçu ce cours.',
+    AppLanguage.de: 'Tag(e) wurden mit diesem Kurs versehen.',
+    AppLanguage.it: 'giorno/i hanno ricevuto questa lezione.',
+  },
+  'activity_name_hint': {
+    AppLanguage.tr: 'Aktivite Adı (ör. Dans Kulübü)',
+    AppLanguage.en: 'Activity Name (e.g. Dance Club)',
+    AppLanguage.fr: 'Nom de l\'activité (ex. Club de danse)',
+    AppLanguage.de: 'Aktivitätsname (z. B. Tanzclub)',
+    AppLanguage.it: 'Nome attività (es. Club di danza)',
+  },
+  'activity_time_hint': {
+    AppLanguage.tr: 'Saat (ör. 18.00)',
+    AppLanguage.en: 'Time (e.g. 18:00)',
+    AppLanguage.fr: 'Heure (ex. 18h00)',
+    AppLanguage.de: 'Uhrzeit (z. B. 18:00)',
+    AppLanguage.it: 'Ora (es. 18:00)',
+  },
+  'activity_for_date': {
+    AppLanguage.tr: 'aktivitesi',
+    AppLanguage.en: 'activity',
+    AppLanguage.fr: 'activité',
+    AppLanguage.de: 'Aktivität',
+    AppLanguage.it: 'attività',
+  },
+  'no_activity_yet': {
+    AppLanguage.tr: 'Bu tarih için aktivite girilmemiş.',
+    AppLanguage.en: 'No activity entered for this date.',
+    AppLanguage.fr: 'Aucune activité saisie pour cette date.',
+    AppLanguage.de: 'Für dieses Datum wurde keine Aktivität eingetragen.',
+    AppLanguage.it: 'Nessuna attività inserita per questa data.',
+  },
+  'please_fill_activity': {
+    AppLanguage.tr: 'Lütfen aktivite adı ve saatini girin.',
+    AppLanguage.en: 'Please enter the activity name and time.',
+    AppLanguage.fr: 'Veuillez saisir le nom et l\'heure de l\'activité.',
+    AppLanguage.de: 'Bitte Aktivitätsname und Uhrzeit eingeben.',
+    AppLanguage.it: 'Inserisci nome e orario dell\'attività.',
+  },
+  'time_label': {
+    AppLanguage.tr: 'Saat',
+    AppLanguage.en: 'Time',
+    AppLanguage.fr: 'Heure',
+    AppLanguage.de: 'Uhrzeit',
+    AppLanguage.it: 'Ora',
+  },
+  'schedule_for': {
+    AppLanguage.tr: 'programı',
+    AppLanguage.en: 'schedule',
+    AppLanguage.fr: 'programme',
+    AppLanguage.de: 'Plan',
+    AppLanguage.it: 'programma',
+  },
+  'lessons_between': {
+    AppLanguage.tr: 'arası dersler',
+    AppLanguage.en: 'lessons',
+    AppLanguage.fr: 'cours',
+    AppLanguage.de: 'Kurse',
+    AppLanguage.it: 'lezioni',
+  },
+
+  // Midterm screen
+  'midterm_title': {
+    AppLanguage.tr: 'Sınavlarım',
+    AppLanguage.en: 'My Exams',
+    AppLanguage.fr: 'Mes Examens',
+    AppLanguage.de: 'Meine Prüfungen',
+    AppLanguage.it: 'I Miei Esami',
+  },
+  'exam_course_label': {
+    AppLanguage.tr: 'Ders / Sınav Adı',
+    AppLanguage.en: 'Course / Exam Name',
+    AppLanguage.fr: 'Cours / Nom de l\'examen',
+    AppLanguage.de: 'Kurs / Prüfungsname',
+    AppLanguage.it: 'Corso / Nome esame',
+  },
+  'exam_course_hint': {
+    AppLanguage.tr: 'Ör. Calculus II',
+    AppLanguage.en: 'e.g. Calculus II',
+    AppLanguage.fr: 'ex. Calculus II',
+    AppLanguage.de: 'z. B. Calculus II',
+    AppLanguage.it: 'es. Calculus II',
+  },
+  'exam_date_label': {
+    AppLanguage.tr: 'Sınav Tarihi',
+    AppLanguage.en: 'Exam Date',
+    AppLanguage.fr: 'Date de l\'examen',
+    AppLanguage.de: 'Prüfungsdatum',
+    AppLanguage.it: 'Data dell\'esame',
+  },
+  'difficulty_label': {
+    AppLanguage.tr: 'Zorluk Seviyesi',
+    AppLanguage.en: 'Difficulty Level',
+    AppLanguage.fr: 'Niveau de difficulté',
+    AppLanguage.de: 'Schwierigkeitsgrad',
+    AppLanguage.it: 'Livello di difficoltà',
+  },
+  'difficulty_easy': {
+    AppLanguage.tr: 'Kolay',
+    AppLanguage.en: 'Easy',
+    AppLanguage.fr: 'Facile',
+    AppLanguage.de: 'Leicht',
+    AppLanguage.it: 'Facile',
+  },
+  'difficulty_medium': {
+    AppLanguage.tr: 'Orta',
+    AppLanguage.en: 'Medium',
+    AppLanguage.fr: 'Moyen',
+    AppLanguage.de: 'Mittel',
+    AppLanguage.it: 'Medio',
+  },
+  'difficulty_hard': {
+    AppLanguage.tr: 'Zor',
+    AppLanguage.en: 'Hard',
+    AppLanguage.fr: 'Difficile',
+    AppLanguage.de: 'Schwer',
+    AppLanguage.it: 'Difficile',
+  },
+  'entry_lesson': {
+    AppLanguage.tr: 'Ders',
+    AppLanguage.en: 'Lesson',
+    AppLanguage.fr: 'Cours',
+    AppLanguage.de: 'Kurs',
+    AppLanguage.it: 'Lezione',
+  },
+  'saved_exams_title': {
+    AppLanguage.tr: 'Kayıtlı Sınavlar',
+    AppLanguage.en: 'Saved Exams',
+    AppLanguage.fr: 'Examens enregistrés',
+    AppLanguage.de: 'Gespeicherte Prüfungen',
+    AppLanguage.it: 'Esami salvati',
+  },
+  'no_exams_yet': {
+    AppLanguage.tr: 'Henüz kayıtlı sınav yok.',
+    AppLanguage.en: 'No exams saved yet.',
+    AppLanguage.fr: 'Aucun examen enregistré pour l\'instant.',
+    AppLanguage.de: 'Noch keine Prüfungen gespeichert.',
+    AppLanguage.it: 'Nessun esame ancora salvato.',
+  },
+  'exam_added': {
+    AppLanguage.tr: 'Sınav eklendi.',
+    AppLanguage.en: 'Exam added.',
+    AppLanguage.fr: 'Examen ajouté.',
+    AppLanguage.de: 'Prüfung hinzugefügt.',
+    AppLanguage.it: 'Esame aggiunto.',
+  },
+  'please_fill_exam_name': {
+    AppLanguage.tr: 'Lütfen ders/sınav adını girin.',
+    AppLanguage.en: 'Please enter the course/exam name.',
+    AppLanguage.fr: 'Veuillez saisir le nom du cours/examen.',
+    AppLanguage.de: 'Bitte Kurs-/Prüfungsnamen eingeben.',
+    AppLanguage.it: 'Inserisci il nome del corso/esame.',
+  },
+
+  // Freetime screen
+  'freetime_desc': {
+    AppLanguage.tr: 'Günün 24 saatinden ders programın, çalışma önerin ve extra aktivitelerin düşülerek kalan boş zamanın hesaplanır.',
+    AppLanguage.en: 'Your remaining free time is calculated by subtracting your lessons, study suggestion and extra activities from the day\'s 24 hours.',
+    AppLanguage.fr: 'Votre temps libre restant est calculé en soustrayant vos cours, votre suggestion d\'étude et vos activités extra des 24 heures de la journée.',
+    AppLanguage.de: 'Deine verbleibende Freizeit wird berechnet, indem Kurse, Lernvorschlag und Extra-Aktivitäten von den 24 Stunden des Tages abgezogen werden.',
+    AppLanguage.it: 'Il tuo tempo libero rimanente si calcola sottraendo lezioni, suggerimento di studio e attività extra dalle 24 ore della giornata.',
+  },
+  'label_lessons': {
+    AppLanguage.tr: 'Dersler',
+    AppLanguage.en: 'Lessons',
+    AppLanguage.fr: 'Cours',
+    AppLanguage.de: 'Kurse',
+    AppLanguage.it: 'Lezioni',
+  },
+  'label_study_suggestion': {
+    AppLanguage.tr: 'Çalışma Önerisi',
+    AppLanguage.en: 'Study Suggestion',
+    AppLanguage.fr: 'Suggestion d\'étude',
+    AppLanguage.de: 'Lernvorschlag',
+    AppLanguage.it: 'Suggerimento di studio',
+  },
+  'no_upcoming_suggestion': {
+    AppLanguage.tr: 'Yaklaşan sınav / öneri yok',
+    AppLanguage.en: 'No upcoming exam / suggestion',
+    AppLanguage.fr: 'Aucun examen / suggestion à venir',
+    AppLanguage.de: 'Keine bevorstehende Prüfung / kein Vorschlag',
+    AppLanguage.it: 'Nessun esame / suggerimento imminente',
+  },
+  'label_extra_activities': {
+    AppLanguage.tr: 'Ekstra Aktiviteler',
+    AppLanguage.en: 'Extra Activities',
+    AppLanguage.fr: 'Activités supplémentaires',
+    AppLanguage.de: 'Extra-Aktivitäten',
+    AppLanguage.it: 'Attività extra',
+  },
+  'label_total_busy': {
+    AppLanguage.tr: 'Toplam Dolu Zaman',
+    AppLanguage.en: 'Total Busy Time',
+    AppLanguage.fr: 'Temps total occupé',
+    AppLanguage.de: 'Gesamte belegte Zeit',
+    AppLanguage.it: 'Tempo totale occupato',
+  },
+  'freetime_formula': {
+    AppLanguage.tr: '24 saat − Toplam Dolu Zaman',
+    AppLanguage.en: '24 hours − Total Busy Time',
+    AppLanguage.fr: '24 heures − Temps total occupé',
+    AppLanguage.de: '24 Stunden − Gesamte belegte Zeit',
+    AppLanguage.it: '24 ore − Tempo totale occupato',
+  },
+  'label_remaining_free': {
+    AppLanguage.tr: 'Kalan Boş Zaman',
+    AppLanguage.en: 'Remaining Free Time',
+    AppLanguage.fr: 'Temps libre restant',
+    AppLanguage.de: 'Verbleibende Freizeit',
+    AppLanguage.it: 'Tempo libero rimanente',
+  },
+  'overflow_note': {
+    AppLanguage.tr: 'Not: Bu gün için planlanan toplam süre 24 saati aşıyor.',
+    AppLanguage.en: 'Note: The total time planned for this day exceeds 24 hours.',
+    AppLanguage.fr: 'Remarque : le temps total prévu pour ce jour dépasse 24 heures.',
+    AppLanguage.de: 'Hinweis: Die für diesen Tag geplante Gesamtzeit übersteigt 24 Stunden.',
+    AppLanguage.it: 'Nota: il tempo totale pianificato per questo giorno supera le 24 ore.',
+  },
+  'unit_hour_short': {
+    AppLanguage.tr: 'sa',
+    AppLanguage.en: 'h',
+    AppLanguage.fr: 'h',
+    AppLanguage.de: 'Std',
+    AppLanguage.it: 'h',
+  },
+  'unit_minute_short': {
+    AppLanguage.tr: 'dk',
+    AppLanguage.en: 'min',
+    AppLanguage.fr: 'min',
+    AppLanguage.de: 'Min',
+    AppLanguage.it: 'min',
+  },
+
+  // Settings screen
+  'settings_language': {
+    AppLanguage.tr: 'Dil',
+    AppLanguage.en: 'Language',
+    AppLanguage.fr: 'Langue',
+    AppLanguage.de: 'Sprache',
+    AppLanguage.it: 'Lingua',
+  },
+  'settings_theme': {
+    AppLanguage.tr: 'Tema',
+    AppLanguage.en: 'Theme',
+    AppLanguage.fr: 'Thème',
+    AppLanguage.de: 'Design',
+    AppLanguage.it: 'Tema',
+  },
+  'theme_default': {
+    AppLanguage.tr: 'Varsayılan (Lila)',
+    AppLanguage.en: 'Default (Lavender)',
+    AppLanguage.fr: 'Par défaut (Lavande)',
+    AppLanguage.de: 'Standard (Lavendel)',
+    AppLanguage.it: 'Predefinito (Lavanda)',
+  },
+  'theme_dark': {
+    AppLanguage.tr: 'Karanlık Mod',
+    AppLanguage.en: 'Dark Mode',
+    AppLanguage.fr: 'Mode Sombre',
+    AppLanguage.de: 'Dunkler Modus',
+    AppLanguage.it: 'Modalità Scura',
+  },
+  'theme_ocean': {
+    AppLanguage.tr: 'Okyanus (Mavi)',
+    AppLanguage.en: 'Ocean (Blue)',
+    AppLanguage.fr: 'Océan (Bleu)',
+    AppLanguage.de: 'Ozean (Blau)',
+    AppLanguage.it: 'Oceano (Blu)',
+  },
+  'theme_slate': {
+    AppLanguage.tr: 'Antrasit (Gri)',
+    AppLanguage.en: 'Slate (Gray)',
+    AppLanguage.fr: 'Ardoise (Gris)',
+    AppLanguage.de: 'Schiefer (Grau)',
+    AppLanguage.it: 'Ardesia (Grigio)',
+  },
+  'settings_saved': {
+    AppLanguage.tr: 'Kaydedildi',
+    AppLanguage.en: 'Saved',
+    AppLanguage.fr: 'Enregistré',
+    AppLanguage.de: 'Gespeichert',
+    AppLanguage.it: 'Salvato',
+  },
+
+  // Terms & Conditions
+  'terms_conditions_link': {
+    AppLanguage.tr: 'Kullanım Koşulları',
+    AppLanguage.en: 'Terms & Conditions',
+    AppLanguage.fr: 'Conditions d\'Utilisation',
+    AppLanguage.de: 'Nutzungsbedingungen',
+    AppLanguage.it: 'Termini e Condizioni',
+  },
+  'terms_conditions_title': {
+    AppLanguage.tr: 'Kullanım Koşulları ve Gizlilik',
+    AppLanguage.en: 'Terms & Conditions and Privacy',
+    AppLanguage.fr: 'Conditions d\'Utilisation et Confidentialité',
+    AppLanguage.de: 'Nutzungsbedingungen und Datenschutz',
+    AppLanguage.it: 'Termini e Condizioni e Privacy',
+  },
+  'terms_conditions_body': {
+    AppLanguage.tr:
+        'Bu uygulama, kullanıcılarından herhangi bir kişisel veri toplamamakta, işlememekte veya üçüncü taraflarla paylaşmamaktadır. Uygulama tarafından istenen tek izin bildirim iznidir. Bu izin; ders, sınav ve aktivitelerinizle ilgili zamanında hatırlatma alabilmeniz için kullanılır ve uygulamanın size sunduğu temel hizmetin (zamanında bilgilendirme) yerine getirilebilmesi açısından teknik olarak zorunludur. Bildirim izni dışında herhangi bir amaçla veri toplanmaz, cihazınızda tutulan bilgiler sunuculara aktarılmaz, reklam veya analiz amacıyla kullanılmaz. Uygulamayı kullanarak bu koşulları kabul etmiş sayılırsınız.',
+    AppLanguage.en:
+        'This application does not collect, process, or share any personal data with third parties. The only permission requested by the application is the notification permission. This permission is used solely to deliver timely reminders about your lessons, exams, and activities, and is technically required to fulfill the core service (timely notification) that the app promises to you. No data is collected, transmitted to any server, or used for advertising or analytics purposes beyond this notification permission. By using this application, you agree to these terms.',
+    AppLanguage.fr:
+        'Cette application ne collecte, ne traite et ne partage aucune donnée personnelle avec des tiers. La seule autorisation demandée par l\'application est celle des notifications. Cette autorisation est utilisée uniquement pour vous envoyer des rappels concernant vos cours, examens et activités, et elle est techniquement indispensable pour assurer le service essentiel (notification en temps voulu) que l\'application vous propose. Aucune donnée n\'est collectée, transmise à un serveur, ni utilisée à des fins publicitaires ou analytiques en dehors de cette autorisation. En utilisant cette application, vous acceptez ces conditions.',
+    AppLanguage.de:
+        'Diese Anwendung sammelt, verarbeitet oder teilt keine personenbezogenen Daten mit Dritten. Die einzige von der Anwendung angeforderte Berechtigung ist die Benachrichtigungsberechtigung. Diese wird ausschließlich verwendet, um Ihnen rechtzeitige Erinnerungen zu Ihren Kursen, Prüfungen und Aktivitäten zu senden, und ist technisch erforderlich, um den zentralen Dienst der App (rechtzeitige Benachrichtigung) zu erfüllen. Über diese Berechtigung hinaus werden keine Daten erhoben, an Server übertragen oder zu Werbe- oder Analysezwecken verwendet. Mit der Nutzung dieser Anwendung stimmen Sie diesen Bedingungen zu.',
+    AppLanguage.it:
+        'Questa applicazione non raccoglie, elabora né condivide alcun dato personale con terze parti. L\'unica autorizzazione richiesta dall\'applicazione è quella relativa alle notifiche. Tale autorizzazione viene utilizzata esclusivamente per inviarti promemoria tempestivi su lezioni, esami e attività, ed è tecnicamente necessaria per garantire il servizio principale (notifica tempestiva) che l\'app ti promette. Oltre a questa autorizzazione, non viene raccolto alcun dato, trasmesso ad alcun server, né utilizzato per finalità pubblicitarie o di analisi. Utilizzando questa applicazione, accetti questi termini.',
+  },
+  'terms_ok': {
+    AppLanguage.tr: 'Anladım',
+    AppLanguage.en: 'Got it',
+    AppLanguage.fr: 'Compris',
+    AppLanguage.de: 'Verstanden',
+    AppLanguage.it: 'Ho capito',
+  },
+};
+
+/// [lang] dilinde [key] anahtarının karşılığını döner.
+/// Bulunamazsa İngilizce'ye, o da yoksa anahtarın kendisine düşer.
+String t(AppLanguage lang, String key) {
+  final entry = _dict[key];
+  if (entry == null) return key;
+  return entry[lang] ?? entry[AppLanguage.en] ?? key;
+}
+
+/// Sınav zorluk seviyesinin seçilen dildeki karşılığı.
+String difficultyLabel(AppLanguage lang, ExamDifficulty d) {
+  switch (d) {
+    case ExamDifficulty.easy:
+      return t(lang, 'difficulty_easy');
+    case ExamDifficulty.medium:
+      return t(lang, 'difficulty_medium');
+    case ExamDifficulty.hard:
+      return t(lang, 'difficulty_hard');
+  }
+}
+
+/// Ders programı satır türünün seçilen dildeki karşılığı.
+String entryTypeLabel(AppLanguage lang, EntryType type) {
+  switch (type) {
+    case EntryType.lesson:
+      return t(lang, 'entry_lesson');
+    case EntryType.freeTime:
+      return t(lang, 'btn_free_time');
+    case EntryType.extracurricular:
+      return t(lang, 'btn_extra');
+    case EntryType.study:
+      return t(lang, 'btn_study');
+  }
+}
